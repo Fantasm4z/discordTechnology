@@ -1,5 +1,8 @@
 import DiscordAPI from 'discord.js';
+import dotenv from 'dotenv';
 import messagesHandler from './Controller/messagesHandler.js';
+
+dotenv.config ( );
 
 const client = new DiscordAPI.Client ( );
 
@@ -11,4 +14,4 @@ client.on ( 'ready', ( ) => {
 
 client.on ( 'message', msg => messagesHandler ( client, msg ) );
 
-client.login ( 'NzAyNjI1MTQ0NzgyNDU0ODc0.XqCwqA.3h0mPkv2Ct01phvU1lYmfN85dCg' );
+client.login ( '' );

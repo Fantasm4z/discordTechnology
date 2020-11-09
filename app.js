@@ -1,6 +1,7 @@
 import DiscordAPI from 'discord.js';
 import dotenv from 'dotenv';
 import messagesHandler from './Controller/messagesHandler.js';
+import loadCommands from './Controller/loadCommands.js';
 
 const result = dotenv.config ( );
 const client = new DiscordAPI.Client ( );
@@ -10,9 +11,12 @@ if ( result.error ) {
     throw result.error
 }
 
+client.commands = new DiscordAPI.Collection ( );
+loadCommands ( client );
+
 client.on ( 'ready', ( ) => {
 
-    console.log ( ` [ Ready! ] - Logged in` );
+    console.log ( `[ Ready! ] - Logged in` );
 
 } );
 

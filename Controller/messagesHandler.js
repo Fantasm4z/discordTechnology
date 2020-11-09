@@ -1,4 +1,3 @@
-import commandsObject from '../Commands/commandsObject';
 
 const messagesHandler = ( client, msg ) => {
     
@@ -10,6 +9,13 @@ const messagesHandler = ( client, msg ) => {
         if ( msg.mentions.has ( client.user.id ) )
 			return msg.reply ( 'n entendi paiero ?' );
         
+        const collectCommand = client.commands.get( command );
+
+        if ( typeof ( collectCommand ) != 'undefined' ) {
+            collectCommand.exec ( msg, client, suffix );
+        } else {
+            return msg.reply ( 'Comando não encontrado.' );
+        }
         
     }
 

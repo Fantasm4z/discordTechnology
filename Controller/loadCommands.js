@@ -15,7 +15,7 @@ const loadCommands = async ( client ) => {
         process.exit ( );
     }
 
-    console.log ( `All commands have been loaded.` );
+    console.log ( `All commands have been loaded.\n` );
 }
 
 export default loadCommands;

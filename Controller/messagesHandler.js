@@ -1,3 +1,4 @@
+import checkUserPrivilegies from './checkUserPrivilegies.js';
 
 const messagesHandler = ( client, msg ) => {
     
@@ -12,7 +13,22 @@ const messagesHandler = ( client, msg ) => {
         const collectCommand = client.commands.get( command );
 
         if ( typeof ( collectCommand ) != 'undefined' ) {
-            collectCommand.exec ( msg, client, suffix );
+
+            // Check if command is disabled
+            //
+
+            if ( collectCommand.disabled ) return msg.reply ( 'Comando desabilitado.' );
+            
+            // Check command privilegies
+            //
+            
+            if ( checkUserPrivilegies ( client, msg, collectCommand.isAdminLvl ) ) {
+                collectCommand.exec ( msg, client, suffix );
+            } else {
+                return msg.reply ( 'Você não tem permissão para utilizar este comando.' );
+            }
+
+            
         } else {
             return msg.reply ( 'Comando não encontrado.' );
         }

@@ -38,7 +38,7 @@ const command = {
         
         if ( serverQueue ) {
 			serverQueue.songs.push ( song );
-			console.log ( serverQueue.songs );
+			console.log ( `Adicionado na queue: ${song.title}` );
 			return msg.channel.send(`✅ **${song.title}** foi adicionado na playlist!`);
 		}
 

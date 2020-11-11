@@ -24,7 +24,7 @@ client.on ( 'ready', ( ) => {
 } );
 
 client.on ( 'message', async (msg) => {
-
+    
 });
 
 client.on ( 'message', msg => messagesHandler ( client, msg ) );

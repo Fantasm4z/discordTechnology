@@ -2,7 +2,7 @@
 const command = {
     commandName: `ping`,
     description: `Ping Pong Game`,
-    disabled: true,
+    disabled: false,
     isAdminLvl: 0,
     exec ( msg, client, suffix ) {
 

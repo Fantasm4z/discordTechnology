@@ -19,6 +19,10 @@
   "homepage": "https://github.com/Fantasm4z/discordTechnology#readme",
   "dependencies": {
     "discord.js": "^12.4.1",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "node-opus": "^0.3.3",
+    "opusscript": "0.0.7",
+    "yt-search": "^2.4.2",
+    "ytdl-core": "^4.0.3"
   }
 }

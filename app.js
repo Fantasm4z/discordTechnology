@@ -14,6 +14,7 @@ if ( result.error ) {
 }
 
 client.commands = new DiscordAPI.Collection ( );
+client.queue = new DiscordAPI.Collection ( );
 loadCommands ( client );
 
 client.on ( 'ready', ( ) => {
@@ -23,6 +24,7 @@ client.on ( 'ready', ( ) => {
 } );
 
 client.on ( 'message', async (msg) => {
+
 });
 
 client.on ( 'message', msg => messagesHandler ( client, msg ) );

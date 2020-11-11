@@ -8,6 +8,8 @@ const messagesUpdateHandler = ( client, oldMsg, newMsg ) => {
 
     if ( !logChannel ) return console.log ( `Fail on save updateHandler in logChannel...` );
 
+    if ( !oldMsg.content || !newMsg.content ) return console.log ( `Fail on save updateHandler by msg.content!` );
+
     let logEmbed = new DiscordAPI.MessageEmbed ( )
         .setAuthor ( newMsg.author.tag, newMsg.author.avatarURL( ) )
         .setDescription ( `💬 | Hook Status: Edited message in ${oldMsg.channel}.` )

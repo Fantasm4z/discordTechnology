@@ -8,6 +8,8 @@ const messagesDeleteHandler = ( client, delMsg ) => {
 
     if ( !logChannel ) return console.log ( `Fail on save deleteHandler in logChannel...` );
 
+    if ( !delMsg.content ) return console.log ( `Fail on save deleteHandler by msg.content!` );
+
     let logEmbed = new DiscordAPI.MessageEmbed ( )
         .setAuthor ( delMsg.author.tag, delMsg.author.avatarURL( ) )
         .setDescription ( `💬 | Hook Status: Deleted message in ${delMsg.channel}.` )

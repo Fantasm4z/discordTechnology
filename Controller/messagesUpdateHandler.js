@@ -10,6 +10,8 @@ const messagesUpdateHandler = ( client, oldMsg, newMsg ) => {
 
     if ( !oldMsg.content || !newMsg.content ) return console.log ( `Fail on save updateHandler by msg.content!` );
 
+    if ( ( oldMsg.content.startsWith( 'http://' ) || oldMsg.content.startsWith( 'https://' ) ) && ( newMsg.content.startsWith( 'http://' ) || newMsg.content.startsWith( 'https://' ) ) ) return console.log ( `Discord edited msg link: ${ newMsg.content }` );
+    
     let logEmbed = new DiscordAPI.MessageEmbed ( )
         .setAuthor ( newMsg.author.tag, newMsg.author.avatarURL( ) )
         .setDescription ( `💬 | Hook Status: Edited message in ${oldMsg.channel}.` )

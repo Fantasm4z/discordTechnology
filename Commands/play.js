@@ -47,7 +47,7 @@ const command = {
 			voiceChannel: channel,
 			connection: null,
 			songs: [ ],
-			volume: 2,
+			volume: 0.25,
 			playing: true
 		};
 		msg.client.queue.set ( msg.guild.id, queueConstruct );

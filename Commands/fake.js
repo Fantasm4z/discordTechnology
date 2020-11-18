@@ -41,7 +41,7 @@ const command = {
 
         ctx.fillText ( senderUsername, 300, 20 );
 
-        ctx.font = '70px Whitney';
+        ctx.font = '60px Whitney';
         ctx.fillStyle = '#dcddde';
         ctx.textBaseline = 'top';
 
@@ -59,7 +59,7 @@ const command = {
         canvas.toBuffer ( ),
         'fakemessage.png'
         );
-        
+
         msg.channel.send ( attachment );
 
     }

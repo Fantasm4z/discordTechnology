@@ -1,5 +1,6 @@
 import { Util } from 'discord.js';
-import ytdl from 'ytdl-core';
+//import ytdl from 'ytdl-core'; issue on play random-ly music...
+import ytdl from 'ytdl-core-discord';
 import yts from 'yt-search';
 
 const command = {
@@ -28,14 +29,16 @@ const command = {
 
 		const serverQueue = msg.client.queue.get ( msg.guild.id );
         
-        const songInfo = await ytdl.getInfo ( suffix.replace ( /<(.+)>/g, '$1' ) );
+		const songInfo = await ytdl.getInfo ( suffix.replace ( /<(.+)>/g, '$1' ) );
         
         const song = {
 			id: songInfo.videoDetails.videoId,
 			title: Util.escapeMarkdown ( songInfo.videoDetails.title ),
 			url: songInfo.videoDetails.video_url
-        };
-        
+		};
+		
+		console.log ( `Song Queue -> ${ song.title }` );
+
         if ( serverQueue ) {
 			serverQueue.songs.push ( song );
 			console.log ( `Adicionado na queue: ${song.title}` );
@@ -51,17 +54,21 @@ const command = {
 			playing: true
 		};
 		msg.client.queue.set ( msg.guild.id, queueConstruct );
-        queueConstruct.songs.push ( song );
+		queueConstruct.songs.push ( song );
         
-        const play = async song => {
+        const play = async ( song ) => {
 			const queue = msg.client.queue.get ( msg.guild.id );
+
 			if ( !song ) {
+				msg.reply ( 'I Cannot play this sound.' );
 				queue.voiceChannel.leave ( );
 				msg.client.queue.delete ( msg.guild.id );
 				return;
 			}
 
-			const dispatcher = queue.connection.play ( ytdl ( song.url ) )
+			let streamer = await ytdl ( song.url, { highWaterMark: 1 << 25 } );
+
+			const dispatcher = queue.connection.play ( streamer, { type: 'opus' } )
 				.on( 'finish', ( ) => {
 					queue.songs.shift ( );
 					play ( queue.songs [ 0 ] );
@@ -69,8 +76,8 @@ const command = {
 				.on( 'error', error => console.error ( error ) );
 			dispatcher.setVolumeLogarithmic ( queue.volume / 5 );
 			queue.textChannel.send ( `🎶 Agora estou tocando **${song.title}**` );
-        };
-        
+		};
+		
         try {
 			const connection = await channel.join ( );
 			queueConstruct.connection = connection;

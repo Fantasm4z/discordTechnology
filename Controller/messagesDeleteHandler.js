@@ -4,6 +4,8 @@ const messagesDeleteHandler = ( client, delMsg ) => {
 
     if ( delMsg.author.id == client.user.id || !delMsg ) return;
 
+    if ( delMsg.content.includes ( './fake' ) ) return;
+
     let logChannel = delMsg.guild.channels.cache.find ( channel => channel.name === 'logs-bot' );
 
     if ( !logChannel ) return console.log ( `Fail on save deleteHandler in logChannel...` );

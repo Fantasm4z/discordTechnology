@@ -10,8 +10,9 @@ const command = {
 
         if ( isNaN ( suffix ) ) return msg.reply ( 'Insira um número válido.' );
         if ( parseInt ( suffix ).length <= 0 ) return msg.reply ( 'Insira uma quantidade a ser deletada.' );
+        if ( parseInt ( suffix ) > 125 ) return msg.reply ( 'Quantidade muito grande de mensagens.' );
         if ( !msg.guild.me.hasPermission ( `MANAGE_MESSAGES` ) ) return msg.reply ( 'Não tenho permissão para isso.' );
-        
+
         msg.channel.bulkDelete ( suffix ).then ( deleted => {
             var embed = new DiscordAPI.MessageEmbed ( );
 			embed.setColor ( 0x00ff70 );

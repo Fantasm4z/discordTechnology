@@ -25,7 +25,7 @@ const command = {
         if ( typeof ( contentArr ) == 'undefined' || contentArr.length < 2 )
             return msg.reply ( 'Argumentos inválidos.' );
 
-        await msg.delete ( );
+        // await msg.delete ( );
 
         if ( userMention.id == '469245017530302494' )
             return msg.reply ( 'User full machined, da n famia' );

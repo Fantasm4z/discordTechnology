@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Fantasm4z/discordTechnology#readme",
   "dependencies": {
     "canvas": "^2.6.1",
+    "colors": "^1.4.0",
     "discord.js": "^12.4.1",
     "dotenv": "^8.2.0",
     "node-opus": "^0.3.3",

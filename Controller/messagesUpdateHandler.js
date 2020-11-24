@@ -1,4 +1,5 @@
 import DiscordAPI from 'discord.js';
+import serverLog from '../Utils/serverLog.js';
 
 const messagesUpdateHandler = ( client, oldMsg, newMsg ) => {
 
@@ -6,11 +7,11 @@ const messagesUpdateHandler = ( client, oldMsg, newMsg ) => {
 
     let logChannel = newMsg.guild.channels.cache.find ( channel => channel.name === 'logs-bot' );
 
-    if ( !logChannel ) return console.log ( `Fail on save updateHandler in logChannel...` );
+    if ( !logChannel ) return serverLog ( `Fail on save updateHandler in logChannel...`, 'red', true );
 
-    if ( !oldMsg.content || !newMsg.content ) return console.log ( `Fail on save updateHandler by msg.content!` );
+    if ( !oldMsg.content || !newMsg.content ) return serverLog ( `Fail on save updateHandler by msg.content!`, 'red', true );
 
-    if ( ( oldMsg.content.startsWith( 'http://' ) || oldMsg.content.startsWith( 'https://' ) ) && ( newMsg.content.startsWith( 'http://' ) || newMsg.content.startsWith( 'https://' ) ) ) return console.log ( `Discord edited msg link: ${ newMsg.content }` );
+    if ( ( oldMsg.content.startsWith( 'http://' ) || oldMsg.content.startsWith( 'https://' ) ) && ( newMsg.content.startsWith( 'http://' ) || newMsg.content.startsWith( 'https://' ) ) ) return false;
     
     let logEmbed = new DiscordAPI.MessageEmbed ( )
         .setAuthor ( newMsg.author.tag, newMsg.author.avatarURL( ) )

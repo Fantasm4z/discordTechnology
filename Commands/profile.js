@@ -9,7 +9,6 @@ const command = {
 
         const memberMention = msg.mentions.members.first ( );
         const userMention = msg.mentions.users.first ( );
-        console.log ( userMention.createdAt );
 
         if ( typeof ( userMention ) == 'undefined' )
             return msg.reply ( 'Usuário mencionado não encontrado.' );

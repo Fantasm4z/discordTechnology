@@ -4,6 +4,7 @@ import messagesHandler from './Controller/messagesHandler.js';
 import messagesUpdateHandler from './Controller/messagesUpdateHandler.js';
 import loadCommands from './Controller/loadCommands.js';
 import messagesDeleteHandler from './Controller/messagesDeleteHandler.js';
+import serverLog from './Utils/serverLog.js';
 
 const result = dotenv.config ( );
 const client = new DiscordAPI.Client ( );
@@ -18,8 +19,8 @@ client.queue = new DiscordAPI.Collection ( );
 loadCommands ( client );
 
 client.on ( 'ready', ( ) => {
-
-    console.log ( `[ Ready! ] - Logged in` );
+    
+    serverLog ( `Ready!`, 'green', true );
 
 } );
 

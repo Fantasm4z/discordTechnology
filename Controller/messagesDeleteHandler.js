@@ -1,4 +1,5 @@
 import DiscordAPI from 'discord.js';
+import serverLog from '../Utils/serverLog.js';
 
 const messagesDeleteHandler = ( client, delMsg ) => {
 
@@ -8,9 +9,9 @@ const messagesDeleteHandler = ( client, delMsg ) => {
 
     let logChannel = delMsg.guild.channels.cache.find ( channel => channel.name === 'logs-bot' );
 
-    if ( !logChannel ) return console.log ( `Fail on save deleteHandler in logChannel...` );
+    if ( !logChannel ) return serverLog ( `Fail on save deleteHandler in logChannel...`, 'red', true );
 
-    if ( !delMsg.content ) return console.log ( `Fail on save deleteHandler by msg.content!` );
+    if ( !delMsg.content ) return serverLog ( `Fail on save deleteHandler by msg.content!`, 'red', true );
 
     let logEmbed = new DiscordAPI.MessageEmbed ( )
         .setAuthor ( delMsg.author.tag, delMsg.author.avatarURL( ) )

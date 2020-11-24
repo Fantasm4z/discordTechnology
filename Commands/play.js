@@ -2,6 +2,7 @@ import { Util } from 'discord.js';
 //import ytdl from 'ytdl-core'; issue on play random-ly music...
 import ytdl from 'ytdl-core-discord';
 import yts from 'yt-search';
+import serverLog from '../Utils/serverLog.js';
 
 const command = {
     commandName: `play`,
@@ -37,11 +38,11 @@ const command = {
 			url: songInfo.videoDetails.video_url
 		};
 		
-		console.log ( `Song Queue -> ${ song.title }` );
+		serverLog ( `Song Queue -> ${ song.title }`, 'magenta', true );
 
         if ( serverQueue ) {
 			serverQueue.songs.push ( song );
-			console.log ( `Adicionado na queue: ${song.title}` );
+			//console.log ( `Adicionado na queue: ${song.title}` );
 			return msg.channel.send(`✅ **${song.title}** foi adicionado na playlist!`);
 		}
 

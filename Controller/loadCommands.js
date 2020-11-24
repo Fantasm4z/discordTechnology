@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import serverLog from '../Utils/serverLog.js';
 
 const loadCommands = async ( client ) => {
 
@@ -8,14 +9,16 @@ const loadCommands = async ( client ) => {
         for ( const file of commandFiles ) {
             const command = await import ( `../Commands/${ file }` );
             client.commands.set ( command.default.commandName, command.default );
-            console.log ( `Loaded ${ command.default.commandName }` );
+            //console.log ( `Loaded ${ command.default.commandName }` );
+            serverLog ( `[ Loaded! ] ${ command.default.commandName }`, 'yellow', false );
         }
     } catch ( e ) {
         console.error ( e );
         process.exit ( );
     }
 
-    console.log ( `All commands have been loaded.\n` );
+    //console.log ( `All commands have been loaded.\n` );
+    serverLog ( `All commands have been loaded.`, 'green', true );
 }
 
 export default loadCommands;

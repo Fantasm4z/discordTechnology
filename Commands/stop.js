@@ -1,8 +1,9 @@
 
 const command = {
     commandName: `stop`,
-    description: `Stop music Playlist`,
+    description: `Stop Music playlist`,
     disabled: false,
+    type: 'music',
     isAdminLvl: 2,
     exec ( msg, client, suffix ) {
 

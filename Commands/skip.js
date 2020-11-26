@@ -6,7 +6,8 @@ const command = {
     commandName: `skip`,
     description: `Skip Music`,
     disabled: false,
-    isAdminLvl: 1,
+    type: 'music',
+    isAdminLvl: 0,
     async exec ( msg, client, suffix ) {
 
         const { channel } = msg.member.voice;

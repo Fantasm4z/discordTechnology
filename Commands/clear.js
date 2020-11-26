@@ -3,8 +3,9 @@ import DiscordAPI from 'discord.js';
 
 const command = {
     commandName: `clear`,
-    description: `clear channel messages by args`,
+    description: `Clear channel messages by args`,
     disabled: false,
+    type: 'moderation',
     isAdminLvl: 1,
     async exec ( msg, client, suffix ) {
 

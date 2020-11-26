@@ -7,7 +7,8 @@ import serverLog from '../Utils/serverLog.js';
 const command = {
     commandName: `play`,
     description: `Play music on voice channel`,
-    disabled: false,
+	disabled: false,
+	type: 'music',
     isAdminLvl: 0,
     async exec ( msg, client, suffix ) {
 

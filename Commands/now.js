@@ -3,6 +3,7 @@ const command = {
     commandName: `now`,
     description: `Now Playing`,
     disabled: false,
+    type: 'music',
     isAdminLvl: 0,
     exec ( msg, client, suffix ) {
 

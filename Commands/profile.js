@@ -2,8 +2,9 @@ import DiscordAPI from 'discord.js';
 
 const command = {
     commandName: `profile`,
-    description: `Obter perfil completo do usuário`,
+    description: `Get a profile of mention user`,
     disabled: false,
+    type: 'moderation',
     isAdminLvl: 1,
     exec ( msg, client, suffix ) {
 

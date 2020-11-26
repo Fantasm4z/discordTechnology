@@ -5,6 +5,7 @@ const command = {
     commandName: `fake`,
     description: `Create a fake message by canvas`,
     disabled: false,
+    type: 'fun',
     isAdminLvl: 1,
     async exec ( msg, client, suffix ) {
 

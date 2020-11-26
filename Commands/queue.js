@@ -3,6 +3,7 @@ const command = {
     commandName: `queue`,
     description: `List Music's Queue`,
     disabled: false,
+    type: 'music',
     isAdminLvl: 0,
     exec ( msg, client, suffix ) {
 

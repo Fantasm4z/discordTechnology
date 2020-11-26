@@ -3,6 +3,7 @@ const command = {
     commandName: `volume`,
     description: `Set volume to voice channel`,
     disabled: false,
+    type: 'music',
     isAdminLvl: 2,
     exec ( msg, client, suffix ) {
 

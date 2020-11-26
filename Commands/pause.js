@@ -3,6 +3,7 @@ const command = {
     commandName: `pause`,
     description: `Pause Music`,
     disabled: false,
+    type: 'music',
     isAdminLvl: 2,
     exec ( msg, client, suffix ) {
 

@@ -3,6 +3,7 @@ const command = {
     commandName: `mute`,
     description: `Mute members`,
     disabled: false,
+    type: 'moderation',
     isAdminLvl: 1,
     exec ( msg, client, suffix ) {
 

@@ -22,6 +22,8 @@ const messagesDeleteHandler = ( client, delMsg ) => {
         .setColor( 0x304ffe );
 
     logChannel.send ( logEmbed )
+
+    serverLog ( `Hooking Status: Deleted Message: [ ${ delMsg.content } ] -> ${ delMsg.author.username }#${ delMsg.author.discriminator }`, 'yellow', true );
 }
 
 export default messagesDeleteHandler;

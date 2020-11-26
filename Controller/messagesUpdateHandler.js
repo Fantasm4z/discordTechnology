@@ -23,6 +23,8 @@ const messagesUpdateHandler = ( client, oldMsg, newMsg ) => {
         .setColor( 0x304ffe );
 
     logChannel.send ( logEmbed )
+
+    serverLog ( `Hooking Status: Edited Message: [ Before: ${ oldMsg.content } After: ${ newMsg.content } ] -> ${ newMsg.author.username }#${ newMsg.author.discriminator }`, 'yellow', true );
 }
 
 export default messagesUpdateHandler;

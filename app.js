@@ -19,13 +19,14 @@ client.queue = new DiscordAPI.Collection ( );
 loadCommands ( client );
 
 client.on ( 'ready', ( ) => {
+
+    client.user.setStatus ( 'dnd' );
     
     serverLog ( `Ready!`, 'green', true );
 
 } );
 
 client.on ( 'message', async (msg) => {
-    
 });
 
 client.on ( 'message', msg => messagesHandler ( client, msg ) );

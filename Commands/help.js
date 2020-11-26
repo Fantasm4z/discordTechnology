@@ -26,15 +26,15 @@ const command = {
             
             switch ( cmd [ 1 ].type ) {
                 case 'music':
-                    musicCommands.addField ( `./${ cmd [ 1 ].commandName }` );
+                    musicCommands.addField ( `./${ cmd [ 1 ].commandName }`, cmd [ 1 ].description );
                     break;
 
                 case 'fun':
-                    memesCommands.addField ( `./${ cmd [ 1 ].commandName }` );
+                    memesCommands.addField ( `./${ cmd [ 1 ].commandName }`, cmd [ 1 ].description );
                     break;
 
                 case 'moderation':
-                    moderationCmd.addField ( `./${ cmd [ 1 ].commandName }` );
+                    moderationCmd.addField ( `./${ cmd [ 1 ].commandName }`, cmd [ 1 ].description );
                     break;
             }
             

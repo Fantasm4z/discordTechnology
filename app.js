@@ -20,7 +20,7 @@ loadCommands ( client );
 
 client.on ( 'ready', ( ) => {
 
-    client.user.setStatus ( 'dnd' );
+    client.user.setActivity ( 'Intel > Amd', { type: 'STREAMING', url: 'https://www.twitch.tv/giovanimkx' } );
     
     serverLog ( `Ready!`, 'green', true );
 

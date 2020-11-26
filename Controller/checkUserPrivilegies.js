@@ -8,7 +8,7 @@ const checkUserPrivilegies = ( client, msg, level = 0 ) => {
             const role = msg.guild.roles.cache.find ( role => role.name === 'Administrador' );
             return msg.member.roles.cache.has ( role.id );
         case 2: // Bot Developer
-            return msg.author.id === process.env.DEV_ID;
+            return msg.author.id === process.env.DEV_ID || msg.author.id === process.env.DEV_ID2;
         default:
             return false;
     }
